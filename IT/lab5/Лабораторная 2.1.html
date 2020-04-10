@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 3.2//RU">
+
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+
+
+		<title>
+			Лабораторная 2.1
+		</title>
+
+	</head> 
+
+
+	<body bgcolor="white" text="black" link="blue" alink="red" vlink="green">
+	<H1 align=center>Сибирский государственный университет телекоммуникаций и информатики </H1>
+	<P align=left><b>Группа ИП-711</b></P>
+	<P align=right><b>Бригада №6</b><BR>Куринный Кирилл<BR>Логинов Владислав<BR>Мартасов Илья</P>
+
+	<FORM align=center>
+    		<img name="img_name" src="r2.gif">
+    		<img name="img" src="r1.gif"><BR>
+		<input type="button" value="Обменять" onClick="change_image('r2.gif', 'r1.gif')">
+	</FORM>	
+
+<script language="JavaScript">
+
+var i = 0;
+var o = 0;
+function change_image(url1, url2)
+{	
+    o++;
+    if(o == 3){ 
+    if(i == 0)
+    {
+    	document.img_name.src = url2;
+    	document.img.src = url1;
+	i++;	
+    }
+    else
+    {
+    	document.img_name.src = url1;
+    	document.img.src = url2;
+	i = 0;
+    }
+    o = 0;
+}
+}
+
+</script>
+	</body>
+</html>

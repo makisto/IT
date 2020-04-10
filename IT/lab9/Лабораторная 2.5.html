@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 3.2//RU">
+<html>
+<head>
+    <title>
+        Лабораторная 2.5
+    </title>
+</head>
+<body bgcolor="white" text="black" link="blue" alink="red" vlink="green" OnLoad="startTime(0)">
+    <H1 align=center>Сибирский государственный университет телекоммуникаций и информатики </H1>
+    <P align=left><b>Группа ИП-711</b></P>
+    <P align=right><b>Бригада №6</b><BR>Куринный Кирилл<BR>Логинов Владислав<BR>Мартасов Илья</P>
+    <p align=center>
+        <Img Name="h1"><Img Name="h2"><Img Src="dgc.gif"><Img Name="m1"><Img Name="m2"><Img Src="dgc.gif"><Img Name="s1"><Img Name="s2"><Img Name="dn">
+    </p>
+    <p align=center>
+        <Img Name="d1"><Img Name="d2"><Img Src="dgp.gif"><Img Name="mo1"><Img Name="mo2"><Img Src="dgp.gif"><Img Name="y1"><Img Name="y2"><Img Name="y3"><Img Name="y4">
+    </p>
+    <button onclick="startTime(0)">Новосибирск</button>
+    <button onclick="startTime(4)">Москва</button>        
+
+</body>
+<Script>
+    var timer;
+
+    dg0 = new Image(); dg0.src = "dg0.gif"
+    dg1 = new Image(); dg1.src = "dg1.gif"
+    dg2 = new Image(); dg2.src = "dg2.gif"
+    dg3 = new Image(); dg3.src = "dg3.gif"
+    dg4 = new Image(); dg4.src = "dg4.gif"
+    dg5 = new Image(); dg5.src = "dg5.gif"
+    dg6 = new Image(); dg6.src = "dg6.gif"
+    dg7 = new Image(); dg7.src = "dg7.gif"
+    dg8 = new Image(); dg8.src = "dg8.gif"
+    dg9 = new Image(); dg9.src = "dg9.gif"
+    function input(h, m, s, d, mo, y, dt)
+    {
+        document.images.h1.src = "dg" + Math.floor(h / 10) + ".gif"
+        document.images.h2.src = "dg" + (h % 10) + ".gif"
+
+        document.images.m1.src = "dg" + Math.floor(m / 10) + ".gif"
+        document.images.m2.src = "dg" + (m % 10) + ".gif"
+
+        document.images.s1.src = "dg" + Math.floor(s / 10) + ".gif"
+        document.images.s2.src = "dg" + (s % 10) + ".gif"
+
+        document.images.dn.src = "dg" + dt + ".gif"
+
+        document.images.d1.src = "dg" + Math.floor(d / 10) + ".gif"
+        document.images.d2.src = "dg" + (d % 10) + ".gif"
+
+        document.images.mo1.src = "dg" + Math.floor(mo / 10) + ".gif"
+        document.images.mo2.src = "dg" + (mo % 10) + ".gif"
+
+        document.y1.src = "dg" + Math.floor(y / 1000) + ".gif"
+        document.images.y2.src = "dg" + Math.floor((y / 100) % 10) + ".gif"
+        document.images.y3.src = "dg" + Math.floor((y / 10) % 10) + ".gif"
+        document.images.y4.src = "dg" + (y % 10) + ".gif"       
+    }
+    function startTime(button) {
+        var time = new Date();
+        var hours = time.getHours() - button;
+        var minutes = time.getMinutes();
+        var seconds = time.getSeconds();
+        var date = time.getDate();
+        var month = time.getMonth();
+        var year = time.getFullYear();
+        var daytime;
+        if (hours > 12) {
+            daytime = "pm"
+        }
+        else {
+            daytime = "am"
+        }
+        month++;
+        input(hours, minutes, seconds, date, month, year, daytime)
+        if (button == 0) {
+            clearTimeout(timer)
+            timer = setTimeout('startTime(0)', 1000)
+        }
+        else {
+            clearTimeout(timer)
+            timer = setTimeout('startTime(4)', 1000)
+        }
+    }
+</Script>
+</html>

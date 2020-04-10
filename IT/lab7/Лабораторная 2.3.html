@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 3.2//RU">
+
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+
+
+		<title>
+			Лабораторная 2.3
+		</title>
+
+	
+<style type="text/css" title="styles">
+	div 
+	{
+
+		background: blue;
+
+		height:75%;
+		width:50%;
+		color: black;
+
+	}
+
+	</style>
+	</head> 
+
+
+		<body bgcolor="white" text="black" link="blue" alink="red" vlink="green">
+		<H1 align=center>Сибирский государственный университет телекоммуникаций и информатики </H1>
+		<P align=left><b>Группа ИП-711</b></P>
+		<P align=right><b>Бригада №6</b><BR>Куринный Кирилл<BR>Логинов Владислав<BR>Мартасов Илья</P>
+		<div>
+		<H1 align=center>Собери мозайку!</H1>
+		<p>Перемещая картинки мышкой нужно собрать рисунок</p>
+			<img id="a" src = "r0.gif">	
+			<img id="b" src = "r1.gif">	
+			<img id="c" src = "r2.gif">	
+			<img id="d" src = "r3.gif">	
+			<img id="e" src = "r4.gif">
+		</div>
+
+<script language = "JavaScript">
+
+var ball = document.getElementById('a');
+var bal = document.getElementById('b');
+var ba = document.getElementById('c');
+var b = document.getElementById('d');
+var a = document.getElementById('e');
+var index = 0;
+
+ball.onmousedown = function(move) {
+
+    if (index == 0)
+        return;
+    else {
+        ball.style.position = 'absolute';
+        moveAt(move);
+
+        function moveAt(move) {
+            ball.style.left = move.pageX - ball.offsetWidth / 2 + 'px';
+            ball.style.top = move.pageY - ball.offsetHeight / 2 + 'px';
+        }
+
+        document.onmousemove = function (move) {
+            moveAt(move);
+        };
+
+        ball.onmouseup = function () {
+            document.onmousemove = null;
+            ball.onmouseup = null;
+        };
+    }
+}
+
+bal.onmousedown = function(move) {
+    if (index == 0)
+        return;
+    else {
+        bal.style.position = 'absolute';
+        moveAt(move);
+
+        function moveAt(move) {
+            bal.style.left = move.pageX - ball.offsetWidth / 2 + 'px';
+            bal.style.top = move.pageY - ball.offsetHeight / 2 + 'px';
+        }
+
+        document.onmousemove = function (move) {
+            moveAt(move);
+        };
+
+        bal.onmouseup = function () {
+            document.onmousemove = null;
+            bal.onmouseup = null;
+        };
+    }
+}
+ba.onmousedown = function(move) {
+    if (index == 0)
+        return;
+    else {
+        ba.style.position = 'absolute';
+        moveAt(move);
+
+        function moveAt(move) {
+            ba.style.left = move.pageX - ball.offsetWidth / 2 + 'px';
+            ba.style.top = move.pageY - ball.offsetHeight / 2 + 'px';
+        }
+
+        document.onmousemove = function (move) {
+            moveAt(move);
+        };
+
+        ba.onmouseup = function () {
+            document.onmousemove = null;
+            ba.onmouseup = null;
+        };
+    }
+}
+b.onmousedown = function(move) {
+    if (index == 0)
+        return;
+    else {
+        b.style.position = 'absolute';
+        moveAt(move);
+
+        function moveAt(move) {
+            b.style.left = move.pageX - b.offsetWidth / 2 + 'px';
+            b.style.top = move.pageY - b.offsetHeight / 2 + 'px';
+        }
+
+        document.onmousemove = function (move) {
+            moveAt(move);
+        };
+
+        b.onmouseup = function () {
+            document.onmousemove = null;
+            b.onmouseup = null;
+        };
+    }
+}
+a.onmousedown = function(move) {
+
+    index++;
+  a.style.position = 'absolute';
+  moveAt(move);
+
+  function moveAt(move) 
+  {
+	a.style.left = move.pageX - a.offsetWidth / 2 + 'px';
+    	a.style.top = move.pageY - a.offsetHeight / 2 + 'px';
+  }
+
+  document.onmousemove = function(move) 
+  {
+    	moveAt(move);
+  };
+
+  a.onmouseup = function() 
+  {
+   	document.onmousemove = null;
+    	a.onmouseup = null;
+  };
+
+}
+
+ball.ondragstart = function() 
+{
+	return false;
+};
+
+bal.ondragstart = function() 
+{
+	return false;
+};
+
+ba.ondragstart = function() 
+{
+	return false;
+};
+
+b.ondragstart = function() 
+{
+	return false;
+};
+
+a.ondragstart = function() 
+{
+	return false;
+};
+
+	</script>
+
+	</body>
+</html>

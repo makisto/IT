@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 3.2//RU">
+<HTML><HEAD>
+<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=Windows-1251">
+<TITLE>Лабораторная 2.2</TITLE>
+<style>
+button {color: red;}
+</style>
+</HEAD> 
+<BODY BGCOLOR="white" 
+ TEXT="black" LINK="blue" ALINK="red" VLINK="green">
+<H1 align=center>Сибирский государственный университет телекоммуникаций и информатики </H1>
+<P align=left><b>Группа ИП-711</b></P>
+<P align=right><b>Бригада №6</b><BR>Куринный Кирилл<BR>Логинов Владислав<BR>Мартасов Илья</P>
+
+<button id="bfaster" onClick="handler(10)">
+Быстрее
+</button >
+<button id="bslower" onClick="handler2(10)">
+Медленнее
+</button >
+<button id="bstart" onClick="mstart()">
+Старт
+</button >
+<button id="bstop" onClick="mstop()">
+Стоп
+</button>
+<br>
+
+<img style="display: block; margin-left: auto; margin-right: auto;" name="animation" src="s1.gif">
+<script language="JavaScript">
+
+var delay = 100;
+var i = 1;
+var idtimer;
+if(delay < 0)
+delay = 0;
+function mstart(){
+    document.getElementById("bstart").style.color = 'black';
+    idtimer = setTimeout(function () {	
+        i++;
+	animation.src="s" + i + ".gif";
+	if (i == 12) { i = 1;}
+	mstart();
+	}, delay)
+}
+
+function handler(x)
+{
+    document.getElementById("bfaster").style.color = 'black';
+    delay-=x;
+}
+
+function handler2(x)
+{
+    document.getElementById("bslower").style.color = 'black';
+    delay+=x;
+}
+
+function mstop()
+{
+    document.getElementById("bstart").style.color = 'red';
+    document.getElementById("bfaster").style.color = 'red';
+    document.getElementById("bslower").style.color = 'red';
+    clearTimeout(idtimer);
+}
+</script>
+</BODY>
+</HTML>

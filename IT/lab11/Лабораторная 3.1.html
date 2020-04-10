@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Лабараторная 3.1</title>
+    <style type="text/css">
+        .main:hover {
+            cursor: default;
+        }
+        a:hover {
+            cursor: default;
+            background-color: fuchsia;
+        }
+        .main {
+            padding: 10px;
+            background-color: teal;
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown {
+            position: absolute;
+            display: none;
+            z-index: 2;
+            padding: 10px;
+            background-color: teal;
+            border: 3px solid black;
+        }
+        #sub2{
+            left: 50px;
+        }
+        #sub3{
+            left: 80px;
+        }
+        #subsub2{
+            left: 70px;
+            bottom: -120px;
+            z-index: 3;
+        }
+    </style>
+    <script type="text/javascript">
+        var timer;
+        var t2;
+
+        function t2show() {
+            document.getElementById('subsub2').style.display = 'inline-block';
+        }
+
+        function t2hide() {
+            t2 = setTimeout(function () {
+                document.getElementById('subsub2').style.display = 'none';
+            }, 1000);
+        }
+
+        function tshow(elem) {
+            document.getElementById('sub1').style.display='none';
+            document.getElementById('sub2').style.display = 'none';
+            document.getElementById('subsub2').style.display = 'none';
+            document.getElementById('sub3').style.display='none';
+            document.getElementById(elem).style.display='inline-block';
+        }
+
+        function thide(elem) {
+            timer = setTimeout(function() {
+                document.getElementById(elem).style.display='none';
+            }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <H1 align=center>Сибирский государственный университет телекоммуникаций и информатики </H1>
+    <P align=left><b>Группа ИП-711</b></P>
+    <P align=right><b>Бригада №6</b><BR>Куринный Кирилл<BR>Логинов Владислав<BR>Мартасов Илья</P>
+<div class="main">
+    <span id="m1" onMouseOver="tshow('sub1')" onMouseOut="thide('sub1')">Menu1</span>
+    <span id="m2" onMouseOver="tshow('sub2')" onMouseOut="thide('sub2')">Menu2</span>
+    <span id="m3" onMouseOver="tshow('sub3')" onMouseOut="thide('sub3')">Menu3</span>
+
+    <div onMouseOver="clearTimeout(timer)" onMouseOut="thide('sub1')" class="dropdown" id="sub1">
+        <a>subMenu1</a><br>
+        <a>subMenu1</a><br>
+        <a>subMenu1</a><br> 
+        <a>subMenu1</a>
+    </div>
+    <div onMouseOver="clearTimeout(timer)" onMouseOut="thide('sub2')" class="dropdown" id="sub2">
+        <a onMouseOver="clearTimeout(timer); t2show()" onMouseOut="    t2hide()">subMenu2</a><br>
+        <a>subMenu2</a><br>
+        <a>subMenu2</a><br> 
+        <a>subMenu2</a>
+    </div>
+    <div onMouseOver="clearTimeout(t2); clearTimeout(timer)" onMouseOut="    thide('subsub2')" class="dropdown" id="subsub2">
+        <a>subsubMenu2</a><br>
+        <a>subsubMenu2</a><br>
+        <a>subsubMenu2</a><br>
+        <a>subsubMenu2</a>
+    </div>
+    <div onMouseOver="clearTimeout(timer)" onMouseOut="thide('sub3')" class="dropdown" id="sub3">
+        <a>subMenu3</a><br>
+        <a>subMenu3</a><br>
+        <a>subMenu3</a><br> 
+        <a>subMenu3</a>
+    </div>
+</div>
+</body>
+</html>
